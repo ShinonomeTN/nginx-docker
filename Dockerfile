@@ -3,8 +3,11 @@ FROM debian:stable-slim
 LABEL maintainer="CattenLinger"
 
 RUN set -x \
-    && apt update \
+# Create nginx user
+    && groupadd --system --gid 101 nginx \
+    && useradd --system --gid nginx --no-create-home --home /nonexistent --comment "nginx user" --shell /bin/false --uid 101 nginx \
 # Install the full-featured nginx, and a curl for test purpose.
+    && apt update \
     && apt install -y nginx-extras curl --no-install-recommends \
     && apt clean \
 # Make the default log output to stdout and stderr

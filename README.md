@@ -1,4 +1,4 @@
-# nginx-docker
+# nginx-docker (docker.shinonometn.com/library/nginx-docker:latest)
 
 The nginx docker image we using, based on debian(debian:stable-slim). It used by most our public server nodes.
 
